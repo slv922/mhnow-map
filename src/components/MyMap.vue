@@ -31,6 +31,7 @@ export default {
     };
   },
   computed: {
+
     center() {
       return this.$store.state.mapCenter;
     },
@@ -153,16 +154,15 @@ export default {
       return marker;
     },
     renderMarkerBox(status, point) {
-      const ageTypes = { adult: '成人', child: '兒童' };
-      const maskAmt = Object.keys(ageTypes).reduce((a, e) => {
-        return a + point.properties[`mask_${e}`];
-      }, 0);
+      // const ageTypes = { adult: '成人', child: '兒童' };
+      // const maskAmt = Object.keys(ageTypes).reduce((a, e) => {
+      //   return a + point.properties[`mask_${e}`];
+      // }, 0);
       let template = this.markerBoxTitleTemplate(status, point);
 
-      Object.entries(ageTypes).forEach((type) => {
-        template += this.markerBoxAmtTemplate({ type, maskAmt, point });
-      });
-      template += '</div>';
+      // Object.entries(ageTypes).forEach((type) => {
+      //   template += this.markerBoxAmtTemplate({ type, maskAmt, point });
+      // });
 
       return template;
     },
@@ -179,7 +179,6 @@ export default {
             ${this.availableStatusMap[status]}
           </span>
         </div>
-        <div class="amt-box-container">
       `;
     },
     markerBoxAmtTemplate({ type: [key, val], maskAmt, point: { properties } }) {

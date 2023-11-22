@@ -10,14 +10,14 @@
       <img :src="require('@/assets/img/available_rule.jpeg')" />
     </modal>
 
-    <search-bar
+    <!-- <search-bar
       :disabled="disabled"
       @onSubmit="onSearchSubmit"
-    />
-
+    /> -->
+<!-- 
     <available-cal
       @openRuleModal="ruleModal = true"
-    />
+    /> -->
 
     <data-detail
       :range="dataDetailRange"
@@ -49,8 +49,8 @@
 
 <script>
 import Modal from '@/components/Modal.vue';
-import SearchBar from '@/components/SearchBar.vue';
-import AvailableCal from '@/components/AvailableCal.vue';
+// import SearchBar from '@/components/SearchBar.vue';
+// import AvailableCal from '@/components/AvailableCal.vue';
 import DataDetail from '@/components/DataDetail.vue';
 import PharmacyCard from '@/components/PharmacyCard.vue';
 import calDistance from '@/mixins/calDistance';
@@ -60,8 +60,8 @@ export default {
   mixins: [calDistance],
 	components: {
     Modal,
-    SearchBar,
-    AvailableCal,
+    // SearchBar,
+    // AvailableCal,
     DataDetail,
     PharmacyCard,
   },
@@ -72,7 +72,7 @@ export default {
       pharmaciesToShow: [],
       pharmacyShowedAmt: 20,
       dataDetailRange: '',
-      range: 5,
+      range: 20,
       disabled: true,
       location: '',
     };

@@ -9,12 +9,12 @@
 		>
 			<img
 				:src="require('@/assets/img/logo.png')"
-				alt="口罩即時查"
+				alt="黑角龍魔物地圖即時查"
 				class="logo-img"
 			>
 
 			<h1 class="logo-title title-sdr text-color-pmr">
-				口罩即時查
+				黑角龍魔物地圖即時查
 			</h1>
 
 			<input

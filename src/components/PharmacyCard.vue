@@ -1,6 +1,6 @@
 <template>
   <div class="pharmacy-card corner-round-sm box-sdw">
-		<div class="amt-box-container">
+		<!-- <div class="amt-box-container">
 			<amt-box
 				v-for="ageType in ['adult', 'child']"
 				:key="ageType"
@@ -10,7 +10,7 @@
 					child: pharmacyData.properties['mask_child']
 				}"
 			/>
-		</div>
+		</div> -->
     
 		<pharmacy-info
 			:pharmacyData="pharmacyData"
@@ -19,12 +19,13 @@
 </template>
 
 <script>
-import AmtBox from '@/components/AmtBox.vue';
+// import AmtBox from '@/components/AmtBox.vue';
 import PharmacyInfo from '@/components/PharmacyInfo';
 
 export default {
+	
 	components: {
-		AmtBox,
+		// AmtBox,
 		PharmacyInfo,
 	},
 	props: {
@@ -32,6 +33,10 @@ export default {
 			type: Object,
 			required: true,
 		},
+		isVisible: { // 新增的 prop
+			type: Boolean,
+			default: true,
+		}
 	},
 };
 </script>

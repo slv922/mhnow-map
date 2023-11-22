@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import mask from '@/apis/mask';
+import moment from 'moment-timezone';
+
 import {
 	FETCH_MASK_DATA,
 	GET_WINDOW_WIDTH,
@@ -13,6 +15,66 @@ import {
 } from '@/types';
 
 Vue.use(Vuex);
+
+function toLocalTime(timestring){
+
+	let dateTime = moment(timestring);
+	dateTime.add(8, 'hours');
+	let tocaltz = moment.tz.guess()
+	let newtime = dateTime.tz(tocaltz)
+
+	return newtime
+	
+}
+
+function convertData(originalData) {
+    // 檢查原始資料是否有效
+    if (!originalData || !originalData.data) {
+        return null;
+    }
+
+    // 創建新的資料結構
+    let convertedData = {
+        type: "FeatureCollection",
+        features: []
+    };
+
+    // 遍歷原始資料中的每個項目，並轉換格式
+    originalData.data.forEach(item => {
+        let feature = {
+            type: "Feature",
+            properties: {
+                id: item.id,
+                name: item.name,
+                phone: "",
+                address: item.coordinates,
+                mask_adult: item.level,
+                mask_child: item.round,
+                updated: item.createdAt,
+                available: "",
+                note: toLocalTime(item.createdAt),
+				level: item.level,
+				round: item.round,
+                custom_note: "",
+                website: "",
+                county: item.location,
+                town: "",
+                cunli: "",
+                service_periods: "NNNNNNNNNNNNNNNNNNNNY"
+            },
+            geometry: {
+                type: "Point",
+                coordinates: [item.lng, item.lat]
+            }
+        };
+
+        // 將轉換後的項目添加到特徵列表中
+        convertedData.features.push(feature);
+    });
+
+    return convertedData;
+}
+
 
 const store = new Vuex.Store({
 	state: {
@@ -60,14 +122,18 @@ const store = new Vuex.Store({
 	},
 	actions: {
 		maskActions({ commit }, action) {
+			
 			const fetchMaskData = () => {
 				let features = null;
+				console.log('fetch data 0')
 				mask.get().then((res) => {
-					features = res.data.features;
+					features = convertData(res.data).features;
 				}).catch(async () => {
+					console.log('fetch data 2')
 					const { features: res } = await import('@/assets/points.json');
 					features = res;
 				}).finally(() => {
+					console.log('fetch data 3')
 					commit('fetchMaskData', features);
 				});
 			};
@@ -77,6 +143,8 @@ const store = new Vuex.Store({
 					fetchMaskData();
 					break;
 				case REFRESH_LIST:
+					fetchMaskData();
+					console.log('action.payload:', action.payload)
 					commit('refreshList', action.payload);
 					break;
 				default:

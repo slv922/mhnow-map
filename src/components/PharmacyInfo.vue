@@ -1,5 +1,5 @@
 <template>
-  <div class="pharmacy-info">
+  <div class="pharmacy-info" v-if="isVisible">
     <div :class="['pharmacy-title', availableStatus(pharmacyInfo)]">
 			<h2 class="pharmacy-name text-color-pmr text-bold title-ttr">
 				{{pharmacyInfo.name}}
@@ -17,7 +17,8 @@
 					'corner-round-sm'
 				]"
 			>
-				{{availableStatusMap[availableStatus(pharmacyInfo)]}}
+				<!-- {{availableStatusMap[availableStatus(pharmacyInfo)]}} -->
+				{{ pharmacyInfo.level }} 星
 			</span>
     </div>
 
@@ -74,10 +75,11 @@ export default {
 	},
 	data() {
 		return {
+			isVisible: true,
 			pharmacyDetail: {
-				'address': '地址',
-				'phone': '電話',
-				'note': '備註',
+				'address': '座標',
+				// 'phone': '電話',
+				'note': '更新時間',
 			},
 		};
 	},

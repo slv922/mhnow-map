@@ -115,6 +115,9 @@ export default {
 		},
 		getResultList(input) {
 			const filteredList = this.allPharmacyData.filter((pharmacy) => {
+				if (pharmacy.properties.name.includes(input)) {
+					return true;
+				}
 				const addressGroup = Object.values(pharmacy).filter((val) => {
 					const [key] = Object.entries(pharmacy).find(([, v]) => v === val);
 					return key !== 'id'

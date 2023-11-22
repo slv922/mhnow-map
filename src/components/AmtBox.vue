@@ -7,7 +7,7 @@
 		]"
 	>
 		<p class="amt-box-title">
-			{{typeMap[type]}}口罩數量
+			{{typeMap[type]}}口罩數
 		</p>
 
 		<p class="amt-box-amt text-sm">
