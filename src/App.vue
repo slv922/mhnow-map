@@ -1,31 +1,6 @@
 <template>
   <div>
-		<modal
-			class="mask-rule-modal"
-			v-show="showMaskRuleModal"
-			@closeModal="toggleMaskRuleModal(false)"
-		>
-			<img
-				:src="require('@/assets/img/mask_rule.jpeg')"
-				class="mask-rule-img"
-			>
-
-			<a
-				href="https://emask.taiwan.gov.tw/msk/index.jsp"
-				target="_blank"
-				class="btn btn-solid-white text-color-pmr corner-round-lg"
-			>
-				立即線上預購
-			</a>
-			
-			<a
-				href="https://www.nhi.gov.tw/Content_List.aspx?n=F834AD6472551F9A"
-				target="_blank"
-				class="btn btn-border-white text-color-white corner-round-lg"
-			>
-				下次可購買日試算
-			</a>
-		</modal>
+		
 
 		<my-header
 			ref="my-header"
@@ -49,11 +24,11 @@
 </template>
 
 <script>
-import Modal from '@/components/Modal.vue';
+// import Modal from '@/components/Modal.vue';
 import MyHeader from '@/components/MyHeader.vue';
 import DataPanel from '@/components/DataPanel.vue';
 import MapPanel from '@/components/MapPanel.vue';
-import { pages } from '@/util';
+// import { pages } from '@/util';
 import {
 	FETCH_MASK_DATA,
 	GET_WINDOW_WIDTH,
@@ -70,7 +45,7 @@ const defaultPos = {
 export default {
 	name: 'App',
 	components: {
-		Modal,
+		// Modal,
 		MyHeader,
 		DataPanel,
 		MapPanel,
@@ -106,23 +81,23 @@ export default {
 				this.curPage = 'index';
 			}
 		},
-		onPageChange(page) {
-			const [index, openModal] = Object.keys(pages);
-			this.curPage = page;
+		// onPageChange(page) {
+		// 	const [index, openModal] = Object.keys(pages);
+		// 	this.curPage = page;
 
-			switch (page) {
-				case index:
-					if (this.$store.getters.rwd === 'mobile') {
-						this.panelShowed = 'data';
-					}
-					break;
-				case openModal:
-					this.toggleMaskRuleModal(true);
-					break;
-				default:
-					break;
-			}
-		},
+		// 	switch (page) {
+		// 		case index:
+		// 			if (this.$store.getters.rwd === 'mobile') {
+		// 				this.panelShowed = 'data';
+		// 			}
+		// 			break;
+		// 		case openModal:
+		// 			this.toggleMaskRuleModal(true);
+		// 			break;
+		// 		default:
+		// 			break;
+		// 	}
+		// },
 		getUserPos() {
 			const successGPS = (position) => {
 				const { coords: { latitude, longitude } } = position;

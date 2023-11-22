@@ -1,7 +1,7 @@
-export const pages = {
-	index: '口罩供給現況',
-	openModal: '口罩怎麼買',
-};
+// export const pages = {
+// 	index: '口罩供給現況',
+// 	openModal: '口罩怎麼買',
+// };
 
 export const getDistance = ([lat1, lng1], [lat2, lng2]) => {
 	const radLat1 = lat1 * Math.PI / 180;
