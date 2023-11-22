@@ -69,8 +69,6 @@ function convertData(originalData) {
         convertedData.features.push(feature);
     });
 
-
-
     return convertedData;
 }
 

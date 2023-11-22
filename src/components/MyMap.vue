@@ -30,18 +30,6 @@ export default {
       markers: [],
     };
   },
-  // mounted(){
-  //   const map = L.map('map').setView([25.0330, 121.5654], 13); // 使用您的坐标和缩放级别
-
-  //   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  //     maxZoom: 19,
-  //     attribution: '© OpenStreetMap contributors'
-  //   }).addTo(map);
-
-  //   // 添加标记
-  //   const marker = L.marker([25.0330, 121.5654]).addTo(map); // 使用您的坐标
-  //   marker.bindPopup("<b>您的位置!</b><br>这里是台北 101。").openPopup();
-  // },
   computed: {
 
     center() {
@@ -111,7 +99,6 @@ export default {
         Promise.allSettled(renderMarkers).then((res) => {
           res.forEach(({ status, value: marker }, idx, arr) => {
             if (status === 'fulfilled') {
-              print(status)
               this.markers = [...this.markers, marker];
             }
             if (idx === arr.length - 1) {
@@ -243,7 +230,7 @@ export default {
     },
     '$store.state.userPos': function(val, oldVal) {
       if (!oldVal.length) {
-
+        this.initMap(val);
         console.log('initMap')
       }
     },
