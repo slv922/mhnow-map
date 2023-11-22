@@ -11,7 +11,7 @@
 				}"
 			/>
 		</div> -->
-    
+		
 		<pharmacy-info
 			:pharmacyData="pharmacyData"
 		/>
@@ -23,7 +23,7 @@
 import PharmacyInfo from '@/components/PharmacyInfo';
 
 export default {
-	
+
 	components: {
 		// AmtBox,
 		PharmacyInfo,
@@ -33,10 +33,6 @@ export default {
 			type: Object,
 			required: true,
 		},
-		isVisible: { // 新增的 prop
-			type: Boolean,
-			default: true,
-		}
 	},
 };
 </script>

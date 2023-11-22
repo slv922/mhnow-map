@@ -11,6 +11,7 @@ import {
 	SET_MAP_RENDERED,
 	SET_PHARMACY_CHECKED,
 	SET_MAP_CENTER,
+	SET_MAP_MARKERS,
 	BACKTO_USER_POS,
 } from '@/types';
 
@@ -41,6 +42,7 @@ function convertData(originalData) {
     originalData.data.forEach(item => {
         let feature = {
             type: "Feature",
+			isVisible: true,
             properties: {
                 id: item.id,
                 name: item.name,
@@ -82,6 +84,7 @@ const store = new Vuex.Store({
 		mapRendered: false,
 		checkedPharmacy: null,
 		mapCenter: [],
+		markers: [],
 	},
 	getters: {
 		rwd(state) {
@@ -116,6 +119,9 @@ const store = new Vuex.Store({
 		setMapCenter(state, coords) {
 			state.mapCenter = coords;
 		},
+		setMapMarkers(state, markers) {
+			state.markers = markers
+		}
 	},
 	actions: {
 		maskActions({ commit }, action) {
@@ -141,7 +147,6 @@ const store = new Vuex.Store({
 					break;
 				case REFRESH_LIST:
 					fetchMaskData();
-					console.log('action.payload:', action.payload)
 					commit('refreshList', action.payload);
 					break;
 				default:
@@ -170,6 +175,9 @@ const store = new Vuex.Store({
 					break;
 				case SET_MAP_CENTER:
 					commit('setMapCenter', action.payload);
+					break;
+				case SET_MAP_MARKERS:
+					commit('setMapMarkers', action.payload);
 					break;
 				case BACKTO_USER_POS:
 					commit('setMapCenter', state.userPos);

@@ -26,6 +26,7 @@
 
     <pharmacy-card
       v-for="pharmacy in pharmaciesToShow.slice(0, pharmacyShowedAmt)"
+      v-show="pharmacy.isVisible"
       :key="pharmacy.properties.id"
       :pharmacy-data="pharmacy"
     />

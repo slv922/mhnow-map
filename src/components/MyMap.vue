@@ -10,6 +10,7 @@ import calDistance from '@/mixins/calDistance';
 import {
   SET_MAP_RENDERED,
   SET_MAP_CENTER,
+  SET_MAP_MARKERS,
   SET_PHARMACY_CHECKED
 } from '@/types';
 
@@ -105,6 +106,7 @@ export default {
               resolve(this.markers);
             }
           });
+          this.$store.dispatch('mapActions', { type: SET_MAP_MARKERS, payload: this.markers });
         });
       });
     },
@@ -150,7 +152,7 @@ export default {
       }).addTo(this.map).bindPopup(popup);
       marker._name = point.properties.name;
       marker._pharmacyId = point.properties.id;
-
+      
       return marker;
     },
     renderMarkerBox(status, point) {

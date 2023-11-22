@@ -1,6 +1,6 @@
 <template>
-  <div class="pharmacy-info" v-if="isVisible">
-    <div :class="['pharmacy-title', availableStatus(pharmacyInfo)]">
+  <div class="pharmacy-info">
+    <div :class="['pharmacy-title', availableStatus(pharmacyInfo)]" style="display: flex; justify-content: space-between; align-items: center;">
 			<h2 class="pharmacy-name text-color-pmr text-bold title-ttr">
 				{{pharmacyInfo.name}}
 			</h2>
@@ -19,6 +19,7 @@
 			>
 				{{availableStatusMap[availableStatus(pharmacyInfo)]}}
 			</span>
+			<button class="corner-round-sm text-sm text-color-basic" @click="hideCard">X</button>
     </div>
 
 		<ul class="pharmacy-detail-list list">
@@ -44,13 +45,7 @@
 					於地圖查看
 				</button>
 
-				<a
-					class="btn text-sm text-underline text-color-basic list-item-btn"
-					v-else-if="detailKey === 'phone'"
-					:href="`tel:${formattedTel(pharmacyInfo.phone)}`"
-				>
-					撥打電話
-				</a>
+				
 			</li>
 		</ul>
   </div>
@@ -74,7 +69,7 @@ export default {
 	},
 	data() {
 		return {
-			isVisible: true,
+
 			pharmacyDetail: {
 				'address': '座標',
 				// 'phone': '電話',
@@ -97,7 +92,13 @@ export default {
 			};
 		},
 	},
+
+
 	methods: {
+		hideCard() {
+			this.pharmacyData.isVisible = false;
+			console.log(this.pharmacyData)
+		},
 		checkOnMap(id) {
 			this.$store.dispatch(
 				'mapActions',
