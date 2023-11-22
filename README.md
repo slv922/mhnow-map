@@ -16,6 +16,6 @@
 - 左邊魔物卡片列表加入了【已攻略】按鈕，打勾後就不會顯示在列表上，方便快速確認打過的怪
 
 ## 聲明
-- fork from [口罩即時查 口罩地圖網站](https://github.com/ycjoyce/mask-map)
-- 魔物資料來源: [MHNow 魔物地圖 Monster Hunter Now](https://mhnow.cc/)
+- fork from [[口罩即時查 口罩地圖網站](https://github.com/ycjoyce/mask-map)]
+- 魔物資料來源 [[MHNow 魔物地圖 Monster Hunter Now](https://mhnow.cc/)]
 - 本作品內圖片、內容等，純粹為個人練習使用，不做任何商業用途
