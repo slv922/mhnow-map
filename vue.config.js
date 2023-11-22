@@ -5,7 +5,7 @@ module.exports = {
     pages: {
         index: {
             entry: './src/main.js',
-            title: '黑角龍魔物地圖即時查',
+            title: '魔物地圖即時查',
         },
     },
 };
