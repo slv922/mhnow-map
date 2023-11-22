@@ -3,12 +3,12 @@
     class="data-panel"
     :style="{ overflow: ruleModal ? 'hidden' : 'scroll' }"
   >
-    <modal
+    <!-- <modal
       v-show="ruleModal"
       @closeModal="ruleModal = false"
     >
       <img :src="require('@/assets/img/available_rule.jpeg')" />
-    </modal>
+    </modal> -->
 
     <!-- <search-bar
       :disabled="disabled"
@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import Modal from '@/components/Modal.vue';
+// import Modal from '@/components/Modal.vue';
 // import SearchBar from '@/components/SearchBar.vue';
 // import AvailableCal from '@/components/AvailableCal.vue';
 import DataDetail from '@/components/DataDetail.vue';
@@ -59,7 +59,7 @@ import { BACKTO_USER_POS } from '@/types';
 export default {
   mixins: [calDistance],
 	components: {
-    Modal,
+    // Modal,
     // SearchBar,
     // AvailableCal,
     DataDetail,
