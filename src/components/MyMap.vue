@@ -71,7 +71,6 @@ export default {
       this.map.on('moveend', this.onMapMoveEnd);
 
       this.drawMarkers(this.filterPointsByDist());
-      console.log('this.filterPointsByDist()',this.filterPointsByDist())
       
       this.$store.dispatch(
         'mapActions',
@@ -244,7 +243,7 @@ export default {
     },
     '$store.state.userPos': function(val, oldVal) {
       if (!oldVal.length) {
-        this.initMap(val);
+
         console.log('initMap')
       }
     },
