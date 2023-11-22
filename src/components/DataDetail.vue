@@ -5,7 +5,7 @@
 				class="list-item"
 				v-show="range"
 			>
-				{{range}}的黑角龍
+				{{range}}的魔物
 			</li>
 
 			<li class="list-item">
