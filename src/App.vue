@@ -28,7 +28,7 @@
 import MyHeader from '@/components/MyHeader.vue';
 import DataPanel from '@/components/DataPanel.vue';
 import MapPanel from '@/components/MapPanel.vue';
-// import { pages } from '@/util';
+import { pages } from '@/util';
 import {
 	FETCH_MASK_DATA,
 	GET_WINDOW_WIDTH,
@@ -81,23 +81,23 @@ export default {
 				this.curPage = 'index';
 			}
 		},
-		// onPageChange(page) {
-		// 	const [index, openModal] = Object.keys(pages);
-		// 	this.curPage = page;
+		onPageChange(page) {
+			const [index] = Object.keys(pages);
+			this.curPage = page;
 
-		// 	switch (page) {
-		// 		case index:
-		// 			if (this.$store.getters.rwd === 'mobile') {
-		// 				this.panelShowed = 'data';
-		// 			}
-		// 			break;
-		// 		case openModal:
-		// 			this.toggleMaskRuleModal(true);
-		// 			break;
-		// 		default:
-		// 			break;
-		// 	}
-		// },
+			switch (page) {
+				case index:
+					if (this.$store.getters.rwd === 'mobile') {
+						this.panelShowed = 'data';
+					}
+					break;
+				// cas:
+				// 	this.toggleMaskRuleModal(true);
+				// 	break;
+				default:
+					break;
+			}
+		},
 		getUserPos() {
 			const successGPS = (position) => {
 				const { coords: { latitude, longitude } } = position;
