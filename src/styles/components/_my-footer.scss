@@ -35,5 +35,12 @@
 .footer-thanks {
     @include rwd(mobile) {
         color: #fff;
+        a:link {
+            color:　#fff;
+        }
+        a:visited{
+            color:#fff;
+        }
     }
+    
 }

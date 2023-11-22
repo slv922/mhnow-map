@@ -18,13 +18,16 @@
 			<p>
 				魔物資料來源: <a target="_blank" href="https://mhnow.cc/">[MHNow 魔物地圖 Monster Hunter Now]</a>
 			</p>
+			<p>
+				Github: https://github.com/slv922/mhnow-map
+			</p>
 		</div>
-
-		<p class="footer-signature text-sm ">
-			<a href="https://github.com/slv922/mhnow-map" target="_blank">
-				<img :src="require('@/assets/img/github-mark-white.png')" alt="GitHub"> slv922/mhnow-map
+<!-- 
+		<p class="footer-signature text-sm">
+			<a href="https://github.com/slv922/mhnow-map" target="_blank" class="github-link">
+				slv922/mhnow-map
 			</a>
-		</p>
+		</p> -->
 
   </footer>
 </template>

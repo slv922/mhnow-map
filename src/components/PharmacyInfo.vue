@@ -27,11 +27,11 @@
 				v-for="(detailVal, detailKey) in pharmacyDetail"
 				:key="detailKey"
 			>
-				<span class="list-item-title">
+				<span class="list-item-title text-sm">
 					{{detailVal}}
 				</span>
 
-				<span class="list-item-content">
+				<span class="list-item-content text-sm">
 					{{pharmacyInfo[detailKey]}}
 				</span>
 

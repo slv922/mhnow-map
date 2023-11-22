@@ -27,7 +27,8 @@
 </template>
 
 <script>
-import { REFRESH_LIST } from '@/types';
+import { REFRESH_LIST, SET_USER_POS } from '@/types';
+
 const defaultPos = {
 	name: '台北車站',
 	coords: [25.0457377, 121.5129428],
@@ -53,11 +54,18 @@ export default {
 		},
 		getUserPos() {
 			const successGPS = (position) => {
+				if(position){
+					console.log('successGPS', position.coords.latitude, position.coords.longitude)
+					this.setUserPos([position.coords.latitude, position.coords.longitude]);
+				}else{
+				
 				const { coords: { latitude, longitude } } = position;
 				this.setUserPos([latitude, longitude]);
+				}
 			};
 
 			const errorGPS = () => {
+				console.log('errorGPS')
 				const { name, coords } = defaultPos;
 				this.errMsg = `無法判斷您的所在位置，預設地點將為 ${name}`
 				this.setUserPos(coords);
@@ -69,6 +77,9 @@ export default {
 			}
 
 			navigator.geolocation.getCurrentPosition(successGPS, errorGPS);
+		},
+		setUserPos(coords) {
+			this.$store.dispatch('mapActions', { type: SET_USER_POS, payload: coords });
 		},
 	},
 	computed: {

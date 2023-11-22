@@ -21,25 +21,23 @@ function toLocalTime(timestring){
 	let dateTime = moment(timestring);
 	dateTime.add(8, 'hours');
 	let tocaltz = moment.tz.guess()
-	let newtime = dateTime.tz(tocaltz)
+	dateTime.tz(tocaltz).format('lll'); 
 
-	return newtime
+	return dateTime.tz(tocaltz).format('lll'); 
 	
 }
 
 function convertData(originalData) {
-    // 檢查原始資料是否有效
+
     if (!originalData || !originalData.data) {
         return null;
     }
 
-    // 創建新的資料結構
     let convertedData = {
         type: "FeatureCollection",
         features: []
     };
 
-    // 遍歷原始資料中的每個項目，並轉換格式
     originalData.data.forEach(item => {
         let feature = {
             type: "Feature",
@@ -68,7 +66,6 @@ function convertData(originalData) {
             }
         };
 
-        // 將轉換後的項目添加到特徵列表中
         convertedData.features.push(feature);
     });
 
