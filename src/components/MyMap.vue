@@ -170,7 +170,7 @@ export default {
       return `
         <div class="pharmacy-title ${status}">
           <p class="text-color-pmr text-bold title-ttr">
-            ${name}s
+            ${name}
           </p>
           <span class="text-color-pmr text-bold text-sm">
             ${this.calDistance(coords)} km
@@ -179,7 +179,8 @@ export default {
             ${this.availableStatusMap[status]}
           </span>
         </div>
-        <div>test</div>
+        <p class="text-sm">經度: ${coords[1]}</p>
+        <p class="text-sm">緯度: ${coords[0]}</p>
       `;
     },
     markerBoxAmtTemplate({ type: [key, val], maskAmt, point: { properties } }) {
