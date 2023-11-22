@@ -20,9 +20,10 @@
 			</p>
 		</div>
 
-		<p class="footer-signature text-sm">
-			<a target="_blank" href="https://icons8.com/icons/set/marker">Marker icon</a> icon by <a target="_blank" href="https://icons8.com/">Icons8</a>
-			<br>slv922 Code / https://github.com/slv922/mhnow-map
+		<p class="footer-signature text-sm ">
+			<a href="https://github.com/slv922/mhnow-map" target="_blank">
+				<img :src="require('@/assets/img/github-mark-white.png')" alt="GitHub"> slv922/mhnow-map
+			</a>
 		</p>
 
   </footer>

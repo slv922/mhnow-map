@@ -17,8 +17,7 @@
 					'corner-round-sm'
 				]"
 			>
-				<!-- {{availableStatusMap[availableStatus(pharmacyInfo)]}} -->
-				{{ pharmacyInfo.level }} 星
+				{{availableStatusMap[availableStatus(pharmacyInfo)]}}
 			</span>
     </div>
 

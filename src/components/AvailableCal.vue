@@ -5,7 +5,7 @@
 		>
 			{{availableMap[weekday]}}
 		</span>
-
+		
 		<span class="available-text">
 			購買日
 		</span>
@@ -16,6 +16,7 @@
 			:src="require('@/assets/img/ic_help.png')"
 			@click="openRuleModal"
 		>
+		{{this.$store.state.userPos}}
   </div>
 </template>
 
